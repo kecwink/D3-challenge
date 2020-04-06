@@ -120,14 +120,17 @@ function makeResponsive() {
       // Create axes labels
     chartGroup.append("text")
     .attr("transform", "rotate(-90)")
-    .attr("y", 0 - margin.left - 10)
+    .attr("y", 0 - margin.left + 5)
     .attr("x", 0 - (height / 2))
     .attr("dy", "1em")
     .attr("class", "axisText")
     .text("Lacks Healthcare(%)");
 
   chartGroup.append("text")
-    .attr("transform", `translate(${width / 2}, ${height + margin.top + 10})`)
+    //.attr("transform", `translate(${width}, ${height - margin.bottom + 10})`)
+    //.attr("transform", `translate(${width / 2}, ${height + margin.top +10})`)
+    .attr("y", 0 - margin.bottom -10)
+    .attr("x", 0 + margin.right-60)
     .attr("class", "axisText")
     .text("In Poverty(%)");
   }).catch(function(error) {
@@ -141,6 +144,7 @@ function makeResponsive() {
 
   // When the browser window is resized, makeResponsive() is called.
   d3.select(window).on("resize", makeResponsive);
+  
 
 
 
